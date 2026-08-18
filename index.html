@@ -1,60 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | FlyRank ML Architecture</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdul Rafay Khan | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #0F172A;
-      color: #F8FAFC;
-      font-family: 'Inter', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      text-align: center;
-    }
-    .container {
-      max-width: 650px;
-      padding: 2.5rem;
-    }
-    h1 {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: #2563EB;
-      font-size: 2.75rem;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-    }
-    p.claim {
-      color: #94A3B8;
-      font-size: 1.15rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-    .badge {
-      display: inline-block;
-      padding: 0.5rem 1.25rem;
-      background-color: rgba(37, 99, 235, 0.1);
-      border: 1px solid #2563EB;
-      color: #2563EB;
-      border-radius: 20px;
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: #0F172A; color: #F8FAFC; font-family: 'Inter', sans-serif; padding: 2rem 1.25rem; line-height: 1.6; }
+    .container { max-width: 750px; margin: 0 auto; }
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 1.5rem; margin-bottom: 3rem; }
+    .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight: 800; color: #F8FAFC; text-decoration: none; }
+    .logo span { color: #2563EB; }
+    h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.5rem; margin-bottom: 1rem; }
+    p.claim { font-size: 1.15rem; color: #94A3B8; margin-bottom: 2rem; }
+    .links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 3rem; }
+    .btn { padding: 0.65rem 1.2rem; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+    .btn-blue { background: #2563EB; color: #fff; }
+    .btn-dark { background: #1E293B; color: #F8FAFC; border: 1px solid #334155; }
+    .card { background: #1E293B; border: 1px solid #334155; border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .card h3 { font-family: 'Plus Jakarta Sans', sans-serif; color: #38BDF8; margin-bottom: 0.5rem; font-size: 1.15rem; }
+    .card p { color: #94A3B8; font-size: 0.95rem; }
+    .badge-box { border: 2px dashed #334155; border-radius: 10px; padding: 2rem; text-align: center; margin-top: 3rem; color: #94A3B8; }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>[ RK. ]</h1>
+    <header>
+      <a href="#" class="logo">[ RK<span>.</span> ]</a>
+      <a href="https://github.com/rafayyk7" style="color:#94A3B8; text-decoration:none;">GitHub</a>
+    </header>
+
+    <h1>Abdul Rafay Khan</h1>
     <p class="claim">"I build production-ready machine learning pipelines and high-throughput data architectures that convert raw interaction signals into sub-second, measurable business impact."</p>
-    <div class="badge">🚀 Week 4: Empty but Live</div>
+
+    <div class="links">
+      <a href="https://github.com/rafayyk7" class="btn btn-blue" target="_blank">💻 GitHub</a>
+      <a href="https://linkedin.com" class="btn btn-dark" target="_blank">🔗 LinkedIn</a>
+      <a href="https://github.com/rafayyk7/flyrank-ml/tree/main/work" class="btn btn-dark" target="_blank">📄 CV / Artifacts</a>
+      <a href="mailto:ab.rafay.khan1@gmail.com" class="btn btn-dark">📅 Contact / Book Sync</a>
+    </div>
+
+    <h2 style="font-family:'Plus Jakarta Sans'; margin-bottom: 1rem;">Selected Work</h2>
+    <div class="card">
+      <h3>⚡ Scoring Engine Optimization (84.3s ➔ 1.4s)</h3>
+      <p>Refactored legacy Pandas pipelines into zero-copy vectorized DuckDB SQL views, processing 4.2M rows (1.8 GB) with zero RAM crashes.</p>
+    </div>
+    <div class="card">
+      <h3>📈 Search Traffic Decay Model (ROC-AUC: 0.8215)</h3>
+      <p>Trained a gradient boosting classifier on 32 client domains using 5-Fold GroupKFold validation to eliminate domain leakage.</p>
+    </div>
+
+    <div class="badge-box">
+      <div style="font-size: 1.75rem;">🛡️</div>
+      <p><strong>Official FlyRank Completion Badge</strong> (Reserved for final capstone approval)</p>
+    </div>
   </div>
 </body>
 </html>
