@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Paper | Predicting Organic Search Traffic Decay — Abdul Rafay Khan</title>
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #0F172A;
+      --paper-bg: #1E293B;
+      --card-border: #334155;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --accent: #2563EB;
+      --accent-light: rgba(37, 99, 235, 0.15);
+      --highlight: #38BDF8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.7;
+      padding: 2rem 1rem 5rem 1rem;
+    }
+
+    .paper-container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--paper-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 3rem 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    @media (min-width: 768px) {
+      .paper-container { padding: 4rem 3.5rem; }
+    }
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 1rem;
+    }
+
+    .top-nav a {
+      color: var(--highlight);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .paper-header { margin-bottom: 2.5rem; }
+    .paper-tag {
+      display: inline-block;
+      background: var(--accent-light);
+      border: 1px solid var(--accent);
+      color: var(--highlight);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: #FFFFFF;
+    }
+
+    .author-meta {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    .author-meta strong { color: var(--text-main); }
+
+    /* Abstract Block */
+    .abstract-box {
+      background: rgba(15, 23, 42, 0.7);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .abstract-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--highlight);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .abstract-text {
+      font-size: 1rem;
+      color: #E2E8F0;
+      font-style: italic;
+    }
+
+    /* Typography & Sections */
+    h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin: 2.5rem 0 1rem 0;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 0.4rem;
+    }
+
+    h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--highlight);
+      margin: 1.5rem 0 0.5rem 0;
+    }
+
+    p { margin-bottom: 1.2rem; color: #CBD5E1; }
+    ul, ol { margin: 0 0 1.2rem 1.5rem; color: #CBD5E1; }
+    li { margin-bottom: 0.4rem; }
+
+    /* Tables */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 1.5rem 0 2rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--card-border);
+    }
+
+    th {
+      background-color: #0F172A;
+      color: var(--highlight);
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+
+    /* Callout & Code Blocks */
+    .callout {
+      background: #0F172A;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      background: #0F172A;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      color: #38BDF8;
+      border: 1px solid var(--card-border);
+    }
+
+    /* Acknowledgments */
+    .acknowledgments {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--card-border);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .acknowledgments a {
+      color: var(--highlight);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="paper-container">
+    <div class="top-nav">
+      <a href="index.html">← Back to Portfolio</a>
+      <span>Research Artifact · Code: ML-11</span>
+    </div>
+
+    <header class="paper-header">
+      <div class="paper-tag">Applied Machine Learning Research</div>
+      <h1>Predicting Organic Search Traffic Decay: Vectorized Feature Engineering and Leak-Free Gradient Boosted Decision Trees on Large-Scale Search Interaction Data</h1>
+      <div class="author-meta">
+        <strong>Abdul Rafay Khan</strong> · Machine Learning &amp; Data Systems · <em>August 2026</em>
+      </div>
+    </header>
+
+    <!-- 1. Title + Abstract -->
+    <div class="abstract-box">
+      <div class="abstract-title">Abstract</div>
+      <p class="abstract-text">
+        Organic search visibility experiences non-linear traffic decay driven by content staleness, algorithmic shifts, and competitive SERP displacement. In this research, we evaluate whether supervised machine learning models can outperform heuristic rules to predict 30-day traffic loss across multi-domain enterprise search data. Using zero-copy DuckDB vectorized views over 90-day lookback windows, we engineer interaction and position stability signals across anonymized domains. We train a gradient boosted decision tree classifier evaluated via strict 5-Fold GroupKFold validation grouped by client domain to prevent cross-domain target leakage. The resulting model achieves an out-of-fold ROC-AUC of 0.8215 (a 20.1% relative lift over the 0.6842 baseline), powering an automated Content Action Playbook that prioritizes high-value content refreshes with human-in-the-loop governance.
+      </p>
+    </div>
+
+    <!-- 2. Introduction / Problem Statement -->
+    <section>
+      <h2>1. Introduction &amp; Problem Statement</h2>
+      <p>
+        Maintaining organic search traffic across enterprise digital portfolios presents an operational challenge: content decay occurs silently before visibility collapses. Standard enterprise workflows rely on static rule thresholds (e.g., flagging any page untouched for 180 days), which generate high false-positive rates and waste finite editorial resources on low-value URLs.
+      </p>
+      <p>
+        The objective of this research is to construct an end-to-end, leak-free machine learning pipeline that predicts organic search decay on a forward 30-day horizon, while refactoring data ingestion to execute within sub-second SLAs on standard hardware.
+      </p>
+    </section>
+
+    <!-- 3. Dataset & Data Contract -->
+    <section>
+      <h2>2. Data Ingestion &amp; Contract Specification</h2>
+      <p>
+        All evaluations were conducted on the anonymized FlyRank Search Intelligence slice ($N = 10,000$ URL records across 20 client domain clusters). To enforce privacy and enterprise compliance, all raw customer URLs, domains, and specific search query strings were hashed into anonymized identifiers (e.g., <code>url_00042</code>, <code>domain_03</code>).
+      </p>
+      
+      <h3>Lookback Windows &amp; Availability Filtering</h3>
+      <ul>
+        <li><strong>Historical Feature Window:</strong> Strictly bounded to the 90 days preceding the snapshot date (<code>2026-03-31</code>).</li>
+        <li><strong>Target Horizon:</strong> Evaluated over the subsequent 30 days post-snapshot.</li>
+        <li><strong>Row Exclusions:</strong> Pages marked with <code>is_available = False</code> (404 errors, noindex tags, server timeouts) were strictly filtered out per our Data Contract to prevent training on permanently decommissioned assets.</li>
+      </ul>
+    </section>
+
+    <!-- 4. Methodology -->
+    <section>
+      <h2>3. Methodology &amp; Validation Architecture</h2>
+      
+      <h3>Baseline Formulation</h3>
+      <p>
+        We established a deterministic baseline action score representing current industry heuristic standards:
+      </p>
+      <div class="callout">
+        <code>Baseline Score = (days_since_update / 365.0) × log10(impressions_90d)</code>
+      </div>
+
+      <h3>Model Architecture</h3>
+      <p>
+        We implemented a <strong>Histogram-based Gradient Boosting Classifier</strong> (<code>HistGradientBoostingClassifier</code>). Gradient boosted trees were selected over deep neural networks due to their native handling of non-linear feature interactions, resilience to unscaled skewed distributions (e.g., power-law impressions), and sub-second inference runtime.
+      </p>
+
+      <h3>Leakage-Free Grouped Validation Design</h3>
+      <p>
+        Standard random K-Fold cross-validation leaks domain-specific style and authority patterns between train and test splits, producing artificially inflated metrics. We implemented a strict <strong>5-Fold GroupKFold</strong> validation design grouped exclusively by <code>domain_id</code>. All URLs from any given domain were isolated into either the training split or the validation split, ensuring all reported metrics represent true out-of-domain generalization.
+      </p>
+    </section>
+
+    <!-- 5. Results -->
+    <section>
+      <h2>4. Results &amp; Comparative Analysis</h2>
+      <p>
+        Performance was benchmarked across identical 5-Fold GroupKFold splits. The Gradient Boosted model outperformed both the heuristic rule baseline and a shallow Random Forest baseline across all primary evaluation metrics:
+      </p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Model / Strategy</th>
+              <th>ROC-AUC</th>
+              <th>PR-AUC</th>
+              <th>Precision@Top25%</th>
+              <th>Recall@Top25%</th>
+              <th>F1-Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Week 4 Heuristic Rule Baseline</strong></td>
+              <td>0.6842</td>
+              <td>0.5410</td>
+              <td>0.6120</td>
+              <td>0.5890</td>
+              <td>0.6003</td>
+            </tr>
+            <tr>
+              <td><strong>Random Forest Benchmark (Depth 6)</strong></td>
+              <td>0.7731</td>
+              <td>0.6685</td>
+              <td>0.7140</td>
+              <td>0.6850</td>
+              <td>0.6992</td>
+            </tr>
+            <tr>
+              <td><strong>HistGradientBoosting (Proposed)</strong></td>
+              <td><strong>0.8215</strong></td>
+              <td><strong>0.7420</strong></td>
+              <td><strong>0.7890</strong></td>
+              <td><strong>0.7540</strong></td>
+              <td><strong>0.7711</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Permutation feature importance analysis identified <code>days_since_update</code> (mean importance = 0.184) and <code>avg_position_30d</code> (mean importance = 0.142) as the primary drivers of traffic decay risk, with <code>ctr_30d</code> providing the critical non-linear dampener.
+      </p>
+    </section>
+
+    <!-- 6. Limitations & Honest Framing -->
+    <section>
+      <h2>5. Limitations &amp; Defensible Framing</h2>
+      <ul>
+        <li><strong>Directional Correlation vs. Causality:</strong> The model identifies statistical risk correlations; it does not claim content staleness is the sole causal driver of ranking drops. Algorithmic core updates and competitor backlink velocity remain external confounders.</li>
+        <li><strong>Domain Distribution Shift:</strong> Performance was validated on enterprise B2B and content publishing domains. E-commerce sites with high inventory turnover may require retraining with product-stock telemetry.</li>
+        <li><strong>Public-Safe Language:</strong> We explicitly frame outputs as <em>"decision-support prioritization queues"</em> rather than autonomous ranking guarantees.</li>
+      </ul>
+    </section>
+
+    <!-- 7. Ranked Recommendations (Playbook) -->
+    <section>
+      <h2>6. Content Action Playbook &amp; Operational Archetypes</h2>
+      <p>
+        Model predictions are mapped into four operational archetypes to direct human editorial bandwidth:
+      </p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Archetype</th>
+              <th>Condition Criteria</th>
+              <th>Reason Code</th>
+              <th>Prescribed Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>High-Value Decay</strong></td>
+              <td>Risk &ge; 0.65, Imp &ge; 2500, Staleness &ge; 120d</td>
+              <td><code>RC_STALE_HIGH_IMP</code></td>
+              <td>Immediate editorial overhaul &amp; data refresh.</td>
+            </tr>
+            <tr>
+              <td><strong>SERP Suppression</strong></td>
+              <td>Risk &ge; 0.50, Position &ge; 10, CTR &lt; 2.5%</td>
+              <td><code>RC_LOW_CTR_DISP</code></td>
+              <td>Snippet optimization, title A/B test, schema update.</td>
+            </tr>
+            <tr>
+              <td><strong>Zombie Content</strong></td>
+              <td>Impressions &lt; 300, Staleness &ge; 270d</td>
+              <td><code>RC_LOW_DEMAND</code></td>
+              <td>Audit utility; 301 redirect to canonical parent or prune.</td>
+            </tr>
+            <tr>
+              <td><strong>Stable Baseline</strong></td>
+              <td>Risk &lt; 0.50, Stable position &amp; CTR</td>
+              <td><code>RC_EQUILIBRIUM</code></td>
+              <td>Passive monitoring; no manual action required.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <strong>Strict No-Go Guardrail:</strong> Automated mass-deletion of URLs and unreviewed LLM text rewriting directly to production CMS are strictly prohibited.
+      </div>
+    </section>
+
+    <!-- 8. Reproducibility -->
+    <section>
+      <h2>7. Reproducibility &amp; Artifact Links</h2>
+      <p>All source code, validation contracts, model receipts, and export queues are committed and verifiable:</p>
+      <ul>
+        <li><strong>Primary Code Repository:</strong> <a href="https://github.com/rafayyk7/flyrank-ml" target="_blank" rel="noopener">github.com/rafayyk7/flyrank-ml</a></li>
+        <li><strong>Validation Audit Notebook:</strong> <a href="https://github.com/rafayyk7/flyrank-ml/blob/main/work/notebooks/w06_validation_audit.ipynb" target="_blank"><code>work/notebooks/w06_validation_audit.ipynb</code></a></li>
+        <li><strong>Playbook Engine Notebook:</strong> <a href="https://github.com/rafayyk7/flyrank-ml/blob/main/work/notebooks/w07_action_playbook.ipynb" target="_blank"><code>work/notebooks/w07_action_playbook.ipynb</code></a></li>
+        <li><strong>Verified Metrics Receipts:</strong> <a href="https://github.com/rafayyk7/flyrank-ml/blob/main/work/outputs/w06_validation_metrics.json" target="_blank"><code>work/outputs/w06_validation_metrics.json</code></a></li>
+      </ul>
+    </section>
+
+    <!-- 9. Acknowledgments & Data Credit -->
+    <footer class="acknowledgments">
+      <p>
+        <strong>Acknowledgments &amp; Data Credit:</strong> Built on the FlyRank ML Internship dataset (<a href="https://flyrank.ai" target="_blank" rel="noopener">https://flyrank.ai</a>). We acknowledge FlyRank for providing search interaction datasets and benchmarking frameworks for research evaluation.
+      </p>
+    </footer>
+  </div>
+
+</body>
+</html>
