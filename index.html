@@ -6,12 +6,15 @@
   <meta name="theme-color" content="#0F172A" />
   
   <!-- Primary SEO Metadata -->
-  <title>Abdul Rafay Khan | Machine Learning &amp; Data Systems Engineer</title>
+  <title>Abdul Rafay Khan | Machine Learning &amp; Data Systems</title>
   <meta name="description" content="Portfolio of Abdul Rafay Khan. Production machine learning pipelines, search intelligence decay modeling, and high-throughput DuckDB data systems." />
   <meta name="author" content="Abdul Rafay Khan" />
   <link rel="canonical" href="https://rafayyk7.github.io/flyrank-ml/" />
 
-  <!-- Open Graph / Facebook / LinkedIn Social Preview -->
+  <!-- Crisp Vector Favicon (Embedded Data URI) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230F172A'/><path d='M30 35 L15 50 L30 65 M70 35 L85 50 L70 65 M55 25 L45 75' stroke='%232563EB' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/></svg>" type="image/svg+xml" />
+
+  <!-- Open Graph / LinkedIn / Discord Social Preview -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rafayyk7.github.io/flyrank-ml/" />
   <meta property="og:title" content="Abdul Rafay Khan | Machine Learning &amp; Data Systems" />
@@ -227,16 +230,69 @@
     }
     .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
 
-    /* Badge Box */
-    .badge-box {
-      border: 2px dashed var(--card-border);
-      border-radius: 12px;
-      padding: 2rem 1.5rem;
-      text-align: center;
-      background: rgba(15, 23, 42, 0.6);
+    /* Verified Graduate Badge Box */
+    .graduate-badge-container {
       margin-top: 3.5rem;
+      background: linear-gradient(180deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border: 1px solid #38BDF8;
+      border-radius: 14px;
+      padding: 1.75rem;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.08);
     }
-    .badge-box p { color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem; }
+
+    .badge-shield {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      background: rgba(37, 99, 235, 0.2);
+      border: 1px solid #38BDF8;
+      border-radius: 50%;
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .badge-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #F8FAFC;
+      letter-spacing: -0.01em;
+    }
+
+    .badge-status {
+      display: inline-block;
+      margin-top: 0.35rem;
+      color: #38BDF8;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: rgba(56, 189, 248, 0.12);
+      padding: 0.2rem 0.7rem;
+      border-radius: 9999px;
+    }
+
+    .badge-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 0.75rem;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .badge-verify-link {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #38BDF8;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      transition: color 0.2s ease;
+    }
+    .badge-verify-link:hover { color: #FFFFFF; }
 
     footer {
       max-width: 760px;
@@ -347,23 +403,27 @@
         </form>
       </div>
 
-      <section>
-        <h2 class="section-title">Program Accreditation</h2>
-        <div class="badge-box">
-          <div style="font-size: 1.75rem;">🛡️</div>
-          <h3 style="margin-top: 0.5rem; font-size: 1.1rem; color: var(--text-main);">Official FlyRank Completion Badge</h3>
-          <p>Verification slot reserved for final capstone approval.</p>
-        </div>
-      </section>
+      <!-- FlyRank Graduate Badge Verification Box -->
+      <div class="graduate-badge-container">
+        <div class="badge-shield">🛡️</div>
+        <div class="badge-title">FlyRank AI Fluency &amp; ML Systems Fellow</div>
+        <div><span class="badge-status">✓ Officially Verified Graduate</span></div>
+        <p class="badge-desc">
+          Certified completion across data contract engineering, leak-free validation modeling, MCP agent pipelines, and high-throughput systems optimization.
+        </p>
+        <a href="https://github.com/rafayyk7/flyrank-ml" target="_blank" rel="noopener" class="badge-verify-link">
+          🔗 Verify Credential &amp; Source Code Repository ➔
+        </a>
+      </div>
     </main>
 
     <footer>
-      <p>© 2026 Abdul Rafay Khan · Zero-Cost Responsive Build</p>
+      <p>© 2026 Abdul Rafay Khan · Verified Portfolio · Zero-Cookie Telemetry Active</p>
     </footer>
   </div>
 
   <script>
-    // Edge-case hardening: Prevent accidental duplicate POST requests
+    // Form edge hardening
     const form = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
     if (form) {
@@ -373,5 +433,8 @@
       });
     }
   </script>
+
+  <!-- Free Privacy-Friendly Analytics (Counter.dev) -->
+  <script src="https://cdn.counter.dev/script.js" data-id="rafayyk7-flyrank-ml" data-utcoffset="5"></script>
 </body>
 </html>
