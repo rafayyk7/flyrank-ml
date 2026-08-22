@@ -4,8 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#0F172A" />
-  <title>Abdul Rafay Khan | Portfolio</title>
   
+  <!-- Primary SEO Metadata -->
+  <title>Abdul Rafay Khan | Machine Learning &amp; Data Systems Engineer</title>
+  <meta name="description" content="Portfolio of Abdul Rafay Khan. Production machine learning pipelines, search intelligence decay modeling, and high-throughput DuckDB data systems." />
+  <meta name="author" content="Abdul Rafay Khan" />
+  <link rel="canonical" href="https://rafayyk7.github.io/flyrank-ml/" />
+
+  <!-- Open Graph / Facebook / LinkedIn Social Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rafayyk7.github.io/flyrank-ml/" />
+  <meta property="og:title" content="Abdul Rafay Khan | Machine Learning &amp; Data Systems" />
+  <meta property="og:description" content="Production machine learning pipelines and high-throughput data architectures with measurable speedups." />
+  <meta property="og:site_name" content="Abdul Rafay Khan Portfolio" />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Abdul Rafay Khan | ML &amp; Data Systems" />
+  <meta name="twitter:description" content="High-throughput data pipelines and gradient-boosted search intelligence models." />
+
   <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,17 +41,8 @@
       --badge-border: rgba(56, 189, 248, 0.3);
     }
 
-    * { 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-      -webkit-tap-highlight-color: transparent;
-    }
-    
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior: smooth; }
     body {
       background-color: var(--bg);
       color: var(--text-main);
@@ -44,13 +52,9 @@
       overflow-x: hidden;
     }
 
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-      width: 100%;
-    }
+    .container { max-width: 760px; margin: 0 auto; width: 100%; }
 
-    /* Header & Navigation */
+    /* Header */
     header {
       padding: 2rem 0 1.5rem 0;
       display: flex;
@@ -68,16 +72,9 @@
       text-decoration: none;
       letter-spacing: -0.02em;
     }
+    .brand-logo span { color: var(--accent); }
 
-    .brand-logo span {
-      color: var(--accent);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-    }
-
+    .nav-links { display: flex; gap: 1rem; }
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
@@ -88,16 +85,10 @@
       align-items: center;
       transition: color 0.2s ease;
     }
+    .nav-links a:hover { color: var(--text-main); }
 
-    .nav-links a:hover, .nav-links a:active {
-      color: var(--text-main);
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 1rem 0 2rem 0;
-    }
-
+    /* Hero */
+    .hero { padding: 1rem 0 2rem 0; }
     .hero-badge {
       display: inline-block;
       padding: 0.35rem 0.85rem;
@@ -126,7 +117,7 @@
       margin-bottom: 2rem;
     }
 
-    /* Action Buttons (Mobile-first Tap Targets) */
+    /* Actions */
     .cta-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -150,32 +141,13 @@
       text-align: center;
     }
 
-    .btn-primary {
-      background-color: var(--accent);
-      color: #FFFFFF;
-      border: 1px solid var(--accent);
-    }
+    .btn-primary { background-color: var(--accent); color: #FFFFFF; border: 1px solid var(--accent); }
+    .btn-primary:hover { background-color: var(--accent-hover); }
+    .btn-secondary { background-color: var(--card-bg); color: var(--text-main); border: 1px solid var(--card-border); }
+    .btn-secondary:hover { border-color: var(--text-muted); background-color: #283548; }
 
-    .btn-primary:hover, .btn-primary:active {
-      background-color: var(--accent-hover);
-    }
-
-    .btn-secondary {
-      background-color: var(--card-bg);
-      color: var(--text-main);
-      border: 1px solid var(--card-border);
-    }
-
-    .btn-secondary:hover, .btn-secondary:active {
-      border-color: var(--text-muted);
-      background-color: #283548;
-    }
-
-    /* Section Styling */
-    section {
-      margin-top: 3rem;
-    }
-
+    /* Case Studies */
+    section { margin-top: 3rem; }
     h2.section-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 1.4rem;
@@ -186,7 +158,6 @@
       padding-bottom: 0.5rem;
     }
 
-    /* Case Study Cards */
     .project-card {
       background-color: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -195,10 +166,7 @@
       margin-bottom: 1.25rem;
       transition: border-color 0.2s ease;
     }
-
-    .project-card:hover {
-      border-color: var(--accent);
-    }
+    .project-card:hover { border-color: var(--accent); }
 
     .card-header {
       display: flex;
@@ -206,22 +174,11 @@
       gap: 0.5rem;
       margin-bottom: 0.75rem;
     }
-
     @media (min-width: 540px) {
-      .card-header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-      }
+      .card-header { flex-direction: row; justify-content: space-between; align-items: flex-start; }
     }
 
-    .card-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
+    .card-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.15rem; font-weight: 700; }
     .card-metric {
       align-self: flex-start;
       font-size: 0.8rem;
@@ -232,18 +189,8 @@
       border-radius: 6px;
     }
 
-    .card-desc {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
+    .card-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .tag {
       font-size: 0.8rem;
       background-color: #0F172A;
@@ -253,7 +200,7 @@
       border: 1px solid var(--card-border);
     }
 
-    /* Interactive Form */
+    /* Form */
     .form-container {
       background-color: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -261,37 +208,14 @@
       padding: 1.5rem;
       margin-top: 3.5rem;
     }
+    @media (min-width: 600px) { .form-container { padding: 2rem; } }
 
-    @media (min-width: 600px) {
-      .form-container { padding: 2rem; }
-    }
+    .form-container h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.35rem; margin-bottom: 0.5rem; }
+    .form-container p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem; }
 
-    .form-container h2 {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.35rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .form-container p {
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    .form-group {
-      margin-bottom: 1.25rem;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-      color: #CBD5E1;
-    }
-
-    .form-group input,
-    .form-group textarea {
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: #CBD5E1; }
+    .form-group input, .form-group textarea {
       width: 100%;
       padding: 0.85rem;
       background: #0F172A;
@@ -299,16 +223,11 @@
       border-radius: 8px;
       color: var(--text-main);
       font-family: inherit;
-      font-size: 1rem; /* 16px prevents iOS auto-zoom on input focus */
+      font-size: 1rem;
     }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
 
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-
-    /* Accreditation Badge */
+    /* Badge Box */
     .badge-box {
       border: 2px dashed var(--card-border);
       border-radius: 12px;
@@ -317,12 +236,7 @@
       background: rgba(15, 23, 42, 0.6);
       margin-top: 3.5rem;
     }
-
-    .badge-box p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-top: 0.5rem;
-    }
+    .badge-box p { color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem; }
 
     footer {
       max-width: 760px;
@@ -338,7 +252,6 @@
 <body>
 
   <div class="container">
-    <!-- Header -->
     <header>
       <a href="#" class="brand-logo">[ RK<span>.</span> ]</a>
       <nav class="nav-links">
@@ -349,7 +262,6 @@
     </header>
 
     <main>
-      <!-- Hero -->
       <section class="hero">
         <div class="hero-badge">⚡ Machine Learning &amp; Data Systems</div>
         <h1>Abdul Rafay Khan</h1>
@@ -373,7 +285,6 @@
         </div>
       </section>
 
-      <!-- Case Studies -->
       <section id="work">
         <h2 class="section-title">Selected Engineering Work</h2>
         
@@ -408,36 +319,34 @@
         </div>
       </section>
 
-      <!-- Dynamic Feature Form -->
       <div class="form-container" id="contact">
         <h2>📬 Get in Touch / Request Technical Sync</h2>
-        <p>Send a direct message below. Submissions are dispatched asynchronously to my inbox via serverless API.</p>
+        <p>Send a direct message below. Submissions are dispatched asynchronously via serverless API.</p>
         
-        <form action="https://formsubmit.co/ab.rafay.khan1@gmail.com" method="POST">
+        <form id="contact-form" action="https://formsubmit.co/ab.rafay.khan1@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="New Portfolio Inquiry from FlyRank" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="text" name="_honey" style="display:none" />
 
           <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required placeholder="e.g. Alex Miller" />
+            <label for="form-name">Your Name</label>
+            <input type="text" id="form-name" name="name" minlength="2" required placeholder="e.g. Alex Miller" />
           </div>
 
           <div class="form-group">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" required placeholder="e.g. alex@company.com" />
+            <label for="form-email">Your Email</label>
+            <input type="email" id="form-email" name="email" required placeholder="e.g. alex@company.com" />
           </div>
 
           <div class="form-group">
-            <label for="message">Project Inquiry or Message</label>
-            <textarea id="message" name="message" rows="4" required placeholder="Let's discuss a technical collaboration..."></textarea>
+            <label for="form-message">Project Inquiry or Message</label>
+            <textarea id="form-message" name="message" rows="4" minlength="10" required placeholder="Let's discuss a technical collaboration..."></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width: 100%;">🚀 Send Live Message</button>
+          <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%;">🚀 Send Live Message</button>
         </form>
       </div>
 
-      <!-- Accreditation Badge Section -->
       <section>
         <h2 class="section-title">Program Accreditation</h2>
         <div class="badge-box">
@@ -453,5 +362,16 @@
     </footer>
   </div>
 
+  <script>
+    // Edge-case hardening: Prevent accidental duplicate POST requests
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    if (form) {
+      form.addEventListener('submit', function() {
+        submitBtn.disabled = true;
+        submitBtn.innerText = '⏳ Dispatching Message...';
+      });
+    }
+  </script>
 </body>
 </html>
