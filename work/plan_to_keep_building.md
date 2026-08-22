@@ -37,24 +37,3 @@ I have saved my core "Identity Kit", CSS variables, and the baseline HTML struct
 When it is time to add the EV project, I will not rebuild from scratch. I will simply drop the raw technical details into that preserved thread and prompt: "Draft a 3-beat portfolio card for this EV project using my established HTML structure."
 
 
-5. Click **Commit changes...** ➔ **Commit changes**.
-
----
-
-### 🧱 Step 2: Set the Actual Reminder
-
-To satisfy the requirement of setting a *real* reminder:
-1. Open your phone's calendar or Google Calendar.
-2. Create an event for **September 15, 2026** (or any date a few weeks from now).
-3. Name it: **"Portfolio Update: Draft EV Management System Case Study"**.
-4. Take a quick screenshot of this calendar event.
-
----
-
-### 🧱 Step 3: Submit on the FlyRank Portal
-
-1. Open the **The Plan to Keep Building** card on your portal.
-2. Paste the link to your newly created file:
-   `[https://github.com/rafayyk7/flyrank-ml/blob/main/work/plan_to_keep_building.md](https://github.com/rafayyk7/flyrank-ml/blob/main/work/plan_to_keep_building.md)`
-3. Upload the screenshot of your calendar reminder as the attached file.
-4. Click **Submit**.
