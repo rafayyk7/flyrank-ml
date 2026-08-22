@@ -1,0 +1,21 @@
+{
+  "track": "Machine Learning",
+  "assignment": "ML-10 / Week 7 Action Playbook",
+  "total_urls_evaluated": 9000,
+  "archetype_breakdown": {
+    "STABLE_BASELINE": 4820,
+    "HIGH_VALUE_DECAY": 2145,
+    "SERP_CTR_SUPPRESSION": 1285,
+    "ZOMBIE_CONTENT": 750
+  },
+  "top_action_reason": "RC_STABLE_TRAFFIC_EQUILIBRIUM",
+  "max_priority_score": 3.8421,
+  "exports_generated": [
+    "work/figures/action_archetypes.png",
+    "work/outputs/action_queue.csv",
+    "work/outputs/w07_playbook_metrics.json"
+  ],
+  "no_go_guardrails_defined": true,
+  "monitoring_triggers_defined": true,
+  "status": "PASS"
+}
