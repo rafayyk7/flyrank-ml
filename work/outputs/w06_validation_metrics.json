@@ -1,0 +1,16 @@
+{
+  "track": "Machine Learning",
+  "assignment": "ML-09 / Week 6 Validation & Claim Audit",
+  "paper_audit_completed": true,
+  "honest_split_results": {
+    "naive_kfold_roc_auc": 0.8942,
+    "honest_groupkfold_roc_auc": 0.8215,
+    "validation_delta": 0.0727
+  },
+  "leakage_checks": {
+    "future_window_leakage": "NONE",
+    "domain_cross_contamination": "ELIMINATED_VIA_GROUPKFOLD"
+  },
+  "safe_claim_language_enforced": true,
+  "status": "PASS"
+}
