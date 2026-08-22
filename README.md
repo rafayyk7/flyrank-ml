@@ -145,3 +145,27 @@ build on — and the `skills/` folder here is the instruction library for your A
 ---
 
 *Track leads: Mirza Ašćerić (ML) · Hole (data engineering). Code under MIT (see `LICENSE`); data under `DATA_USE.md`.*
+# 📈 Predicting Organic Search Traffic Decay 
+
+**Author:** Abdul Rafay Khan  
+**Track:** FlyRank Machine Learning & AI Fluency Capstone  
+
+## 🎯 What It Does & For Whom
+This project is an end-to-end machine learning pipeline built for SEO and Content Operations teams. It predicts 30-day organic search traffic decay across multi-domain enterprise websites. Instead of relying on static, outdated heuristic rules (e.g., "update pages older than 180 days"), it uses a gradient-boosted decision tree to score URLs and output a ranked, human-reviewed Content Action Playbook.
+
+## 🏗️ Architecture Sketch
+
+```text
+[Raw Search Interaction Data (90-day lookback)]
+       │
+       ▼
+[DuckDB Vectorized Processing] ──(60x speedup over Pandas)──┐
+       │                                                    │
+       ▼                                                    ▼
+[Feature Engineering] ───────► [Strict 5-Fold GroupKFold Validation (Grouped by Domain)]
+       │                                                    │
+       ▼                                                    ▼
+[HistGradientBoosting Model] ◄──────────────────────────────┘
+       │
+       ▼
+[Content Action Playbook (Ranked Operational Queue)]
