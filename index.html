@@ -1,29 +1,457 @@
-<!-- Dynamic Live Feature: Serverless Contact Form -->
-    <div class="form-container" id="contact">
-      <h2>📬 Get in Touch / Request Technical Sync</h2>
-      <p>Send a direct message below. Submissions are dispatched live via FormSubmit serverless gateway.</p>
-      
-      <form action="https://formsubmit.co/ab.rafay.khan1@gmail.com" method="POST">
-        <!-- Anti-spam & redirect configuration -->
-        <input type="hidden" name="_subject" value="New Portfolio Inquiry from FlyRank" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="text" name="_honey" style="display:none" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0F172A" />
+  <title>Abdul Rafay Khan | Portfolio</title>
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #0F172A;
+      --card-bg: #1E293B;
+      --card-border: #334155;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --accent: #2563EB;
+      --accent-hover: #1D4ED8;
+      --accent-light: rgba(37, 99, 235, 0.18);
+      --badge-border: rgba(56, 189, 248, 0.3);
+    }
 
-        <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" required placeholder="e.g. Alex Miller" />
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      padding: 0 1rem 4rem 1rem;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Header & Navigation */
+    header {
+      padding: 2rem 0 1.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 2.5rem;
+    }
+
+    .brand-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--text-main);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover, .nav-links a:active {
+      color: var(--text-main);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 1rem 0 2rem 0;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      background-color: var(--accent-light);
+      border: 1px solid var(--badge-border);
+      color: #38BDF8;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2rem, 6vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.03em;
+    }
+
+    p.lead-claim {
+      font-size: clamp(1.05rem, 3.5vw, 1.2rem);
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    /* Action Buttons (Mobile-first Tap Targets) */
+    .cta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 48px;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #FFFFFF;
+      border: 1px solid var(--accent);
+    }
+
+    .btn-primary:hover, .btn-primary:active {
+      background-color: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      background-color: var(--card-bg);
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover, .btn-secondary:active {
+      border-color: var(--text-muted);
+      background-color: #283548;
+    }
+
+    /* Section Styling */
+    section {
+      margin-top: 3rem;
+    }
+
+    h2.section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 0.5rem;
+    }
+
+    /* Case Study Cards */
+    .project-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+    }
+
+    .card-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    @media (min-width: 540px) {
+      .card-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    }
+
+    .card-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .card-metric {
+      align-self: flex-start;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #38BDF8;
+      background: rgba(56, 189, 248, 0.12);
+      padding: 0.3rem 0.65rem;
+      border-radius: 6px;
+    }
+
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      background-color: #0F172A;
+      color: var(--text-muted);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid var(--card-border);
+    }
+
+    /* Interactive Form */
+    .form-container {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    @media (min-width: 600px) {
+      .form-container { padding: 2rem; }
+    }
+
+    .form-container h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-container p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #CBD5E1;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem;
+      background: #0F172A;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 1rem; /* 16px prevents iOS auto-zoom on input focus */
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    /* Accreditation Badge */
+    .badge-box {
+      border: 2px dashed var(--card-border);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      background: rgba(15, 23, 42, 0.6);
+      margin-top: 3.5rem;
+    }
+
+    .badge-box p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      max-width: 760px;
+      margin: 4rem auto 0 auto;
+      border-top: 1px solid var(--card-border);
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <a href="#" class="brand-logo">[ RK<span>.</span> ]</a>
+      <nav class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/rafayyk7" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-badge">⚡ Machine Learning &amp; Data Systems</div>
+        <h1>Abdul Rafay Khan</h1>
+        <p class="lead-claim">
+          "I build production-ready machine learning pipelines and high-throughput data architectures that convert raw interaction signals into sub-second, measurable business impact."
+        </p>
+
+        <div class="cta-grid">
+          <a href="https://github.com/rafayyk7" class="btn btn-primary" target="_blank" rel="noopener">
+            💻 GitHub Profile
+          </a>
+          <a href="https://linkedin.com" class="btn btn-secondary" target="_blank" rel="noopener">
+            🔗 LinkedIn
+          </a>
+          <a href="https://github.com/rafayyk7/flyrank-ml/tree/main/work" class="btn btn-secondary" target="_blank" rel="noopener">
+            📄 View CV / Artifacts
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            ✉️ Contact Sync
+          </a>
+        </div>
+      </section>
+
+      <!-- Case Studies -->
+      <section id="work">
+        <h2 class="section-title">Selected Engineering Work</h2>
+        
+        <div class="project-card">
+          <div class="card-header">
+            <div class="card-title">High-Throughput Scoring Engine Optimization</div>
+            <div class="card-metric">84.3s ➔ 1.4s (60x Speedup)</div>
+          </div>
+          <p class="card-desc">
+            Refactored legacy row-by-row compute pipeline into zero-copy vectorized DuckDB SQL views. Processed 4.2M rows (1.8 GB dataset) with zero RAM crashes on standard hardware.
+          </p>
+          <div class="card-tags">
+            <span class="tag">DuckDB</span>
+            <span class="tag">Python</span>
+            <span class="tag">SIMD Vectorization</span>
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="email">Your Email</label>
-          <input type="email" id="email" name="email" required placeholder="e.g. alex@company.com" />
+        <div class="project-card">
+          <div class="card-header">
+            <div class="card-title">FlyRank Search Intelligence &amp; Content Decay Model</div>
+            <div class="card-metric">ROC-AUC: 0.8215 (+20% Lift)</div>
+          </div>
+          <p class="card-desc">
+            Trained an ensemble gradient boosting classifier on 32 client domains using strict 5-Fold GroupKFold validation to completely eliminate cross-domain target leakage.
+          </p>
+          <div class="card-tags">
+            <span class="tag">HistGradientBoosting</span>
+            <span class="tag">GroupKFold</span>
+            <span class="tag">Data Contracts</span>
+          </div>
         </div>
+      </section>
 
-        <div class="form-group">
-          <label for="message">Project Inquiry or Message</label>
-          <textarea id="message" name="message" rows="4" required placeholder="Let's discuss a technical collaboration..."></textarea>
+      <!-- Dynamic Feature Form -->
+      <div class="form-container" id="contact">
+        <h2>📬 Get in Touch / Request Technical Sync</h2>
+        <p>Send a direct message below. Submissions are dispatched asynchronously to my inbox via serverless API.</p>
+        
+        <form action="https://formsubmit.co/ab.rafay.khan1@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Portfolio Inquiry from FlyRank" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" style="display:none" />
+
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="e.g. Alex Miller" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required placeholder="e.g. alex@company.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Project Inquiry or Message</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Let's discuss a technical collaboration..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">🚀 Send Live Message</button>
+        </form>
+      </div>
+
+      <!-- Accreditation Badge Section -->
+      <section>
+        <h2 class="section-title">Program Accreditation</h2>
+        <div class="badge-box">
+          <div style="font-size: 1.75rem;">🛡️</div>
+          <h3 style="margin-top: 0.5rem; font-size: 1.1rem; color: var(--text-main);">Official FlyRank Completion Badge</h3>
+          <p>Verification slot reserved for final capstone approval.</p>
         </div>
+      </section>
+    </main>
 
-        <button type="submit" class="btn btn-blue" style="width: 100%;">🚀 Send Live Message</button>
-      </form>
-    </div>
+    <footer>
+      <p>© 2026 Abdul Rafay Khan · Zero-Cost Responsive Build</p>
+    </footer>
+  </div>
+
+</body>
+</html>
